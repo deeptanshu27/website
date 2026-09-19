@@ -19,9 +19,10 @@ function loadBackground() {
             drawText(width, height);
         }
     } else {
+        let i = 0;
         localStorage.setItem("drawPrev", "true");
         let loadInterval = setInterval(() => {
-            if (i == 100) clearInterval(loadInterval);
+            if (i == drawCount) clearInterval(loadInterval);
             drawText(width, height);
             i++;
         }, 50);
