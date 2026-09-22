@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+}
+
 .categories {
     display: none;
 }
