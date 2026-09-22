@@ -1,0 +1,44 @@
+.categories {
+    display: none;
+}
+
+#categoriesContainer {
+    display: grid;
+}
+
+h1 {
+    text-shadow: 2px 2px #606060;
+}
+#container h3 {
+    text-shadow: 1px 1px #606060;
+}
+
+#container2 {
+    display: grid;
+    grid-template-columns: min-content 1fr min-content;
+    width: fit-content;
+    text-shadow: 2px 2px #606060;
+}
+#container2 > h2 {
+    writing-mode: vertical-rl;
+    margin: 0;
+    cursor: pointer;
+}
+#h2_1 {
+    transform: rotate(180deg);
+}
+
+img {
+    width: 80%;
+}
+
+.main {
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.main  div {
+    display: grid;
+    place-items: center;
+}
