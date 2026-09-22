@@ -1,8 +1,44 @@
 /*
-issues: too much text on small screens
-change selected text to ######## :D
+issues:
+    resize
+    change selected text to ######## :D
 */
 
+let categoriesEnabled = false;
+let dims = [];
+
+function squareLoad() {
+    if (dims[0] != undefined) {
+        console.log(dims);
+        document.getElementById("squarelol").style.width = dims[0];
+        document.getElementById("squarelol").style.height = dims[1];
+    }
+}
+
+function setDims() {
+    dims[0] = document.getElementById("literallyme").clientWidth.toString() + "px";
+    dims[1] = document.getElementById("literallyme").clientHeight.toString() + "px";
+    squareLoad();
+}
+
+function toggleCategories() {
+    categoriesEnabled = !categoriesEnabled;
+    let l = document.getElementsByClassName("categories");
+
+    for (let i = 0; i < l.length; i++) {
+        if (categoriesEnabled) {
+            l[i].style.display = "block";
+            document.getElementById("categoriesContainer").style["gridTemplateRows"] = "1fr 1fr";
+            document.getElementById("categoriesContainer").style["gridTemplateColumns"] = "1fr 1fr";
+            document.getElementById("literallyme").style.display = "none";
+        } else {
+            l[i].style.display = "none";
+            document.getElementById("categoriesContainer").style["gridTemplateRows"] = "auto";
+            document.getElementById("categoriesContainer").style["gridTemplateColumns"] = "auto";
+            document.getElementById("literallyme").style.display = "block";
+        }
+    }
+}
 
 function init() {
     loadBackground();
@@ -13,7 +49,6 @@ function loadBackground() {
     let dimsRatio = (width*height)/(1920*1200);
     let drawCount = 100*dimsRatio;
     if (drawCount < 50) drawCount = 50;
-    console.log(drawCount);
     if (localStorage.getItem("drawPrev") == "true") {
         for (let i = 0; i < drawCount; i++) {
             drawText(width, height);
@@ -43,6 +78,6 @@ function drawText(width, height) {
     p.style.opacity = opacity;
     p.style.fontSize = 14 + (6 * opacity) + "px";
     p.style.margin = 0;
-    p.style.zIndex = "-1";
+    p.style.zIndex = parseInt((-1.1 + opacity) * 100).toString();
     document.body.append(p);
 }
