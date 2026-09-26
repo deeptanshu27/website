@@ -7,17 +7,9 @@ issues:
 let categoriesEnabled = false;
 let dims = [];
 
-function squareLoad() {
-    if (dims[0] != undefined) {
-        // document.getElementById("squarelol").style.width = dims[0];
-        // document.getElementById("squarelol").style.height = dims[1];
-    }
-}
-
 function setDims() {
     dims[0] = document.getElementById("categoriesContainer").clientWidth.toString() + "px";
     dims[1] = document.getElementById("categoriesContainer").clientWidth.toString() + "px";
-    squareLoad();
 }
 
 function toggleCategories() {
@@ -42,7 +34,15 @@ function toggleCategories() {
 
 function init() {
     loadBackground();
+    loadAbout();
 }
+
+function loadAbout() {
+    if (Math.floor(Math.random()*100) > 90) {
+        document.getElementById("about").innerText = "(lost in time~)";
+    }
+}
+
 function loadBackground() {
     let width = window.innerWidth;
     let height = window.innerHeight;
@@ -64,10 +64,11 @@ function loadBackground() {
     }
 }
 
-let pChoices = ["silver", "silver", "silver", "silver",
-    "#####", "#####",
-    "a sphinx",
-    "[redacted]"];
+let pChoices = ["silver", "silver", "silver", "silver", "silver", "silver", "silver", "silver",
+    "#####", "#####", "#####", "#####",
+    "a sphinx", "a sphinx",
+    "[redacted]", "[redacted]",
+    "चांदी"];
 function drawText(width, height) {
     let p = document.createElement("p");
     p.textContent = pChoices[Math.floor(Math.random() * pChoices.length)];
