@@ -12,7 +12,6 @@ function init() {
   
   for (let i = 0; i < drawCount; i++) {
     let maxLength = getRandom(25);
-    console.log(maxLength);
     drawText(maxLength);
   }
 }
@@ -26,7 +25,6 @@ function drawText(maxLength) {
   let content = "classified";
   content = content.substring(getRandom(content.length));
 
-  console.log(maxLength);
   while (content.length < maxLength) {
     let rand = random_letters[getRandom(random_letters.length)];
     if (getRandom(2)) {
