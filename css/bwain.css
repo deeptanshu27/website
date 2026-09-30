@@ -14,6 +14,12 @@ body {
   background-color: rgba(0, 0, 0, 0.4);
 }
 
+#container hr {
+  width: 100%;
+  border: none;
+  border: 1px dashed white;
+}
+
 img {
   height: 300px;
 }
